@@ -11,4 +11,4 @@ Made by me, mostly for me. One day we may go live, cause my family owns a bee-ga
 This API is responsible for eCommerce webshop BACKEND.
 TO see it work use the link :point_right: 
 
-For now you can download the APP and use it.
+For now, you can download the APP and use it.
