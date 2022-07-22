@@ -13,6 +13,16 @@ TO see it work use the link :point_right:
 
 For now, you can download the APP and use it.
 
+## Postgres Database
+
+This web application uses Postgres Database.
+
+To run it use:
+
+1) cd docker (to get inside of /docker/ folder)
+2) docker-compose up -d (to run our database configured in docker-compose.yml)
+3) Connect your IDE to the database using ports and login stated in docker-compose.yml
+
 ## TODO
 
 1) ...
