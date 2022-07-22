@@ -12,3 +12,15 @@ This API is responsible for eCommerce webshop BACKEND.
 TO see it work use the link :point_right: 
 
 For now, you can download the APP and use it.
+
+## TODO
+
+1) ...
+
+## UML
+
+## Changes
+
+## Author
+
+* rojberr - [drzymala.dev](https://drzymala.dev)
