@@ -6,7 +6,7 @@ services:
     image: postgres:14.4
     restart: always
     environment:
-      POSTGRES_DB: honey
+      POSTGRES_DB: honeydb
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: pass123
     ports:
