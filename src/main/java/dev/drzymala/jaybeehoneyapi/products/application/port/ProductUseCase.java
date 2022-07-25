@@ -24,6 +24,8 @@ public interface ProductUseCase {
 
     Product addProduct(CreateProductCommand command);
 
+    public void removeById(Long id);
+
     @Value
     class CreateProductCommand {
         String name;

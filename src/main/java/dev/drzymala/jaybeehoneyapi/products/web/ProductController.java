@@ -78,6 +78,13 @@ public class ProductController {
         return ResponseEntity.ok(product.getId());
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) {
+
+        products.removeById(id);
+    }
+
     @Data
     private static class RestProductCommand {
         @NotBlank
