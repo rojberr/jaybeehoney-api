@@ -29,7 +29,7 @@ The REST API was documented and can be found here: ~~https://rojberr.github.io/h
 The documentation was created using SpringFox Boot Starter tool.
 
 Another dependency was added, and not Swagger Honey API documentation can be accessed after launching the application
-and typing: http://localhost:8080/swagger-ui/index.html#/ in your browser address field. :)
+and typing: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) in your browser address field. :)
 
 ![Swagger image](swagger.png)
 
