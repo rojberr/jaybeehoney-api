@@ -31,4 +31,9 @@ public class Manufacturer extends BaseEntity {
 
     @CreatedDate
     private LocalDateTime createdAt;
+
+    public Manufacturer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
