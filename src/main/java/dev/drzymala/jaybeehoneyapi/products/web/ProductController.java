@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
-@RequestMapping(value = "product")
+@RequestMapping(value = "/product")
 @RestController
 @AllArgsConstructor
 public class ProductController {
@@ -65,7 +65,6 @@ public class ProductController {
         CreateProductCommand toCreateCommand() {
             return new CreateProductCommand(name);
         }
-
 
         UpdateProductCommand toUpdateCommand(Long id) {
             return new UpdateProductCommand(id, name);

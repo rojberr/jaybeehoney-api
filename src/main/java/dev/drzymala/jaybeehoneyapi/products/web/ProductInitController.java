@@ -18,6 +18,7 @@ public class ProductInitController {
     @PostMapping
     @Transactional
     public void initialize() {
+
         initializer.initialize();
     }
 

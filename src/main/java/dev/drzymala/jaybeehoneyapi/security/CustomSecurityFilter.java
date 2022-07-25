@@ -14,8 +14,12 @@ public class CustomSecurityFilter {
         http
                 .authorizeHttpRequests()
                 .mvcMatchers(HttpMethod.GET, "/**").permitAll()
+                .mvcMatchers(HttpMethod.POST, "/init").permitAll()
                 .and()
                 .httpBasic();
+
+        http.csrf().disable();
+
         return http.build();
     }
 }
