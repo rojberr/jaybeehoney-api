@@ -25,4 +25,9 @@ public class Product extends BaseEntity {
     @JoinTable
     @JsonIgnoreProperties("products")
     private Set<Manufacturer> manufacturers = new HashSet<>();
+
+    public Product(String productName) {
+
+        this.productName = productName;
+    }
 }
