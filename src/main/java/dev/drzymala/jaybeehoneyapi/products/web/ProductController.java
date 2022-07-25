@@ -3,6 +3,7 @@ package dev.drzymala.jaybeehoneyapi.products.web;
 import dev.drzymala.jaybeehoneyapi.products.application.port.ProductUseCase;
 import dev.drzymala.jaybeehoneyapi.products.application.port.ProductUseCase.CreateProductCommand;
 import dev.drzymala.jaybeehoneyapi.products.application.port.ProductUseCase.UpdateProductCommand;
+import dev.drzymala.jaybeehoneyapi.products.application.port.ProductUseCase.UpdateProductResponse;
 import dev.drzymala.jaybeehoneyapi.products.domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -57,6 +58,17 @@ public class ProductController {
                 .findOneByProductName(productName)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateHoney(@PathVariable Long id,
+                            @RequestBody RestProductCommand command) {
+        UpdateProductResponse response = products.updateProduct(command.toUpdateCommand(id));
+        if (!response.isSuccess()) {
+            String message = String.join(", ", response.getErrors());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, message);
+        }
     }
 
     @PostMapping
