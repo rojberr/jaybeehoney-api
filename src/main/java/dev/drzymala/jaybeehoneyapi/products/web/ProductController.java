@@ -50,6 +50,15 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping(value = "/one")
+    public ResponseEntity<?> getOneByName(@RequestParam String productName) {
+
+        return products
+                .findOneByProductName(productName)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Long> addProduct(@Valid @RequestBody RestProductCommand command) {
