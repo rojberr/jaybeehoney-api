@@ -14,11 +14,17 @@ public interface ProductUseCase {
 
     public List<Product> findAll();
 
-    public List<Product> findByProductName(String productName);
-
     Optional<Product> findById(Long id);
 
+    public List<Product> findByProductName(String productName);
+
+    public Optional<Product> findOneByProductName(String productName);
+
+    UpdateProductResponse updateProduct(UpdateProductCommand command);
+
     Product addProduct(CreateProductCommand command);
+
+    public void removeById(Long id);
 
     @Value
     class CreateProductCommand {

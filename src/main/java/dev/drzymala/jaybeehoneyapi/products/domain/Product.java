@@ -30,4 +30,15 @@ public class Product extends BaseEntity {
 
         this.productName = productName;
     }
+
+    public void addManufacturer(Manufacturer manufacturer) {
+        manufacturers.add(manufacturer);
+        manufacturer.getProducts().add(this);
+    }
+
+    public void removeManufacturers() {
+        Product self = this;
+        manufacturers.forEach(manufacturer -> manufacturer.getProducts().remove(self));
+        manufacturers.clear();
+    }
 }
