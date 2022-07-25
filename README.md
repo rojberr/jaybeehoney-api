@@ -23,6 +23,16 @@ To run it use:
 2) docker-compose up -d (to run our database configured in docker-compose.yml)
 3) Connect your IDE to the database using ports and login stated in docker-compose.yml
 
+## Swagger - API Documentation
+
+The REST API was documented and can be found here: ~~https://rojberr.github.io/honey-swagger/~~ (deprecated, use the one stated below)
+The documentation was created using SpringFox Boot Starter tool.
+
+Another dependency was added, and not Swagger Honey API documentation can be accessed after launching the application
+and typing: http://localhost:8080/swagger-ui/index.html#/ in your browser address field. :)
+
+![Swagger image](swagger.png)
+
 ## TODO
 
 1) ...
