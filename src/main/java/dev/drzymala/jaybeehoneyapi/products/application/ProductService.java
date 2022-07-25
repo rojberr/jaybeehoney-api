@@ -25,14 +25,20 @@ public class ProductService implements ProductUseCase {
     }
 
     @Override
+    public Optional<Product> findById(Long id) {
+        return repository.findById(id);
+    }
+
+    @Override
     public List<Product> findByProductName(String productName) {
 
         return repository.findByProductName(productName);
     }
 
     @Override
-    public Optional<Product> findById(Long id) {
-        return repository.findById(id);
+    public Optional<Product> findOneByProductName(String productName) {
+
+        return repository.findDistinctFirstByProductNameStartsWithIgnoreCase(productName);
     }
 
     @Override

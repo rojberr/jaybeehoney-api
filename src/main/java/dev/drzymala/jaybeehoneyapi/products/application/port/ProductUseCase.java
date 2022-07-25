@@ -14,9 +14,11 @@ public interface ProductUseCase {
 
     public List<Product> findAll();
 
+    Optional<Product> findById(Long id);
+
     public List<Product> findByProductName(String productName);
 
-    Optional<Product> findById(Long id);
+    public Optional<Product> findOneByProductName(String productName);
 
     Product addProduct(CreateProductCommand command);
 
