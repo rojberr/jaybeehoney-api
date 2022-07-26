@@ -6,22 +6,39 @@ Made by me, mostly for me. One day we may go live, cause my family owns a bee-ga
 
 ![Photo by Anete Lusina from Pexels](photo-readme.jpeg)
 
-## Usage 💡
+# Usage 💡
 
 This API is responsible for eCommerce webshop BACKEND.
-TO see it work use the link :point_right: 
+To use it you can send requests at the host :point_right: [https://jaybeehoney-api.herokuapp.com/](https://jaybeehoney-api.herokuapp.com/) 
+**Please remember that this API is not meant to be used with your browser**  
 
-For now, you can download the APP and use it.
+Try (Heroku free tier apps sleep after 30 minutes of inactivity and need a minute to wake up): 
+> curl -X POST https://jaybeehoney-api.herokuapp.com/init  
+
+![img.png](img.png)
+
+And then:
+> curl -X GET https://jaybeehoney-api.herokuapp.com/product
+
+![img_1.png](img_1.png)
+
+
+Feel free to edit it and use it for your own eCommerce website. 🛒
+Functions like ordering are already included!
 
 ## Postgres Database
 
-This web application uses Postgres Database.
+This web application uses **local / Heroku** Postgres Database.
 
-To run it, use:
+This API automatically connects to the local PostgreSQL using **Spring Profiles**.
+When it gets deployed to Heroku it will use **prod profile** connecting to **Heroku PostgreSQL database**.
+
+To run it locally, use:
 
 1) cd docker (to get inside of /docker/ folder)
 2) docker-compose up -d (to run our database configured in docker-compose.yml)
-3) Connect your IDE to the database using ports and login stated in docker-compose.yml
+3) Open the API in your favorite IDE (I suggest IntelliJ 🤖 ) and run it!
+4) The connection 🔗 will be established automatically using env from __docker-compose.yml__ 
 
 ## Swagger - API Documentation
 
