@@ -20,6 +20,8 @@ public interface ProductUseCase {
 
     public Optional<Product> findOneByProductName(String productName);
 
+    List<Product> findByManufacturerName(String manufacturerName);
+
     UpdateProductResponse updateProduct(UpdateProductCommand command);
 
     Product addProduct(CreateProductCommand command);

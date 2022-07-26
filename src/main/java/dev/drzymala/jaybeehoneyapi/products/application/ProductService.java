@@ -45,6 +45,13 @@ public class ProductService implements ProductUseCase {
         return repository.findDistinctFirstByProductNameStartsWithIgnoreCase(productName);
     }
 
+
+    @Override
+    public List<Product> findByManufacturerName(String manufacturerName) {
+
+        return repository.findByManufacturerName(manufacturerName);
+    }
+
     private void updateProduct(Product product, Set<Manufacturer> manufacturerSet) {
 
         product.removeManufacturers();
@@ -66,7 +73,8 @@ public class ProductService implements ProductUseCase {
 
         if (command.getName() != null) {
             honey.setProductName(command.getName());
-        } return honey;
+        }
+        return honey;
     }
 
     @Override

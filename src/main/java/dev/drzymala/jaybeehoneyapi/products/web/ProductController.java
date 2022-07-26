@@ -60,6 +60,13 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping(value = "/manufacturer")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Product> getByManufacturerName(@RequestParam String manufacturerName) {
+
+        return products.findByManufacturerName(manufacturerName);
+    }
+
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateHoney(@PathVariable Long id,
