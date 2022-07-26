@@ -30,10 +30,16 @@ public class ProductController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Product> getAll(@RequestParam Optional<String> productName) {
+    public List<Product> getAll(
+            @RequestParam Optional<String> productName,
+            @RequestParam Optional<String> manufacturerName
+    ) {
 
         if (productName.isPresent()) {
             return products.findByProductName(productName.get());
+        }
+        if (manufacturerName.isPresent()) {
+            return products.findByManufacturerName(manufacturerName.get());
         }
         return products.findAll().stream().limit(5).collect(Collectors.toList());
     }
@@ -58,13 +64,6 @@ public class ProductController {
                 .findOneByProductName(productName)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping(value = "/manufacturer")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Product> getByManufacturerName(@RequestParam String manufacturerName) {
-
-        return products.findByManufacturerName(manufacturerName);
     }
 
     @PatchMapping("/{id}")
