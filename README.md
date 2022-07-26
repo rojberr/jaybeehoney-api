@@ -6,7 +6,7 @@ Made by me, mostly for me. One day we may go live, cause my family owns a bee-ga
 
 ![Photo by Anete Lusina from Pexels](photo-readme.jpeg)
 
-## Use 💡
+## Usage 💡
 
 This API is responsible for eCommerce webshop BACKEND.
 TO see it work use the link :point_right: 
@@ -17,7 +17,7 @@ For now, you can download the APP and use it.
 
 This web application uses Postgres Database.
 
-To run it use:
+To run it, use:
 
 1) cd docker (to get inside of /docker/ folder)
 2) docker-compose up -d (to run our database configured in docker-compose.yml)
