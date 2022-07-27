@@ -2,10 +2,7 @@ package dev.drzymala.jaybeehoneyapi.products.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dev.drzymala.jaybeehoneyapi.commons.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -19,6 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString(exclude = "manufacturers")
 public class Product extends BaseEntity {
 
     @Column(unique = true)
