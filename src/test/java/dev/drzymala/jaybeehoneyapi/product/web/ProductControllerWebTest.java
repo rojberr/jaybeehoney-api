@@ -32,6 +32,7 @@ class ProductControllerWebTest {
 
     @Test
     public void shouldGetAllProducts() throws Exception {
+
         // Given
         Product honey1 = new Product("Name 1");
         Product honey2 = new Product("Name 2");
