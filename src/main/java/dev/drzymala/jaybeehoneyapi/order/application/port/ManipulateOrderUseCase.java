@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface ManipulateOrderUseCase {
 
-    void placeOrder();
+    PlaceOrderResponse placeOrder(PlaceOrderCommand command);
 
     void deleteOrderById(Long id);
 
@@ -31,6 +31,7 @@ public interface ManipulateOrderUseCase {
 
     @Value
     class OrderItemCommand {
+
         Long honeyId;
         int quantity;
 
@@ -46,6 +47,7 @@ public interface ManipulateOrderUseCase {
 
     @Value
     class UpdateStatusCommand {
+
         Long orderId;
         OrderStatus status;
         UserDetails user;

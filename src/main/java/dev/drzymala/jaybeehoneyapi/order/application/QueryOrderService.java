@@ -33,11 +33,12 @@ public class QueryOrderService implements QueryOrderUseCase {
     @Override
     @Transactional
     public Optional<RichOrder> findById(Long id) {
+
         return orderRepository.findById(id).map(this::toRichOrder);
     }
 
-
     private RichOrder toRichOrder(Order order) {
+
         OrderPrice orderPrice = priceService.calculatePrice(order);
         return
                 new RichOrder(

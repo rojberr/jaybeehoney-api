@@ -10,6 +10,8 @@ import java.time.Duration;
 @ConstructorBinding
 @ConfigurationProperties("app.order")
 public class OrderProperties {
+
     Duration paymentPeriod;
+
     String abandonCron;
 }
