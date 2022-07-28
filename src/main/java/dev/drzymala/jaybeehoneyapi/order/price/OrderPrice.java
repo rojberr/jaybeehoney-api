@@ -1,7 +1,10 @@
 package dev.drzymala.jaybeehoneyapi.order.price;
 
+import lombok.Value;
+
 import java.math.BigDecimal;
 
+@Value
 public class OrderPrice {
 
     BigDecimal itemsPrice;
