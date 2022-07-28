@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static dev.drzymala.jaybeehoneyapi.order.application.port.ManipulateOrderUseCase.UpdateStatusCommand;
+import static dev.drzymala.jaybeehoneyapi.order.application.port.ManipulateOrderUseCase.UpdateStatusResponse;
 
 @Slf4j
 @Component
@@ -27,8 +28,6 @@ public class AbandonedOrdersJob {
     private final ManipulateOrderService orderUseCase;
 
     private final OrderProperties properties;
-
-    private final User systemUser;
 
     private final Clock clock;
 
@@ -43,7 +42,8 @@ public class AbandonedOrdersJob {
         log.info("Found orders to be abandoned: " + orders.size());
 
         orders.forEach(order -> {
-            orderUseCase.updateOrderStatus(new UpdateStatusCommand(order.getId(), OrderStatus.ABANDONED, systemUser));
+            UpdateStatusCommand command = new UpdateStatusCommand(order.getId(), OrderStatus.ABANDONED);
+            orderUseCase.updateOrderStatus(command);
         });
     }
 }

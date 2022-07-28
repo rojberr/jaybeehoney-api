@@ -9,6 +9,7 @@ import dev.drzymala.jaybeehoneyapi.order.domain.Recipient;
 import dev.drzymala.jaybeehoneyapi.order.domain.UpdateStatusResult;
 import dev.drzymala.jaybeehoneyapi.product.db.ProductJpaRepository;
 import dev.drzymala.jaybeehoneyapi.product.domain.Product;
+import dev.drzymala.jaybeehoneyapi.security.UserSecurity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,8 @@ public class ManipulateOrderService implements ManipulateOrderUseCase {
     private final ProductJpaRepository productJpaRepository;
 
     private final RecipientJpaRepository recipientJpaRepository;
+
+    private final UserSecurity userSecurity;
 
     @Override
     public PlaceOrderResponse placeOrder(PlaceOrderCommand command) {
@@ -81,7 +84,9 @@ public class ManipulateOrderService implements ManipulateOrderUseCase {
     @Override
     @Transactional
     public UpdateStatusResponse updateOrderStatus(UpdateStatusCommand command) {
-        return repository.findById(command.getOrderId())
+
+        return repository
+                .findById(command.getOrderId())
                 .map(order -> {
                     UpdateStatusResult result = order.updateStatus(command.getStatus());
                     if (result.isRevoked()) {
@@ -90,7 +95,7 @@ public class ManipulateOrderService implements ManipulateOrderUseCase {
                     repository.save(order);
                     return UpdateStatusResponse.success(order.getStatus());
                 })
-                .orElse(UpdateStatusResponse.failure(ManipulateOrderUseCase.Error.NOT_FOUND));
+                .orElse(UpdateStatusResponse.failure(Error.NOT_FOUND));
     }
 
     private Set<Product> revokeHoneys(Set<OrderItem> items) {
