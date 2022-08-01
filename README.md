@@ -50,6 +50,13 @@ and typing: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagge
 
 ![Swagger image](swagger.png)
 
+## Git flow
+
+This repo is developed using [gitflow workflow](https://www.atlassian.com/de/git/tutorials/comparing-workflows/gitflow-workflow).
+To whole project consists of development, master, release and feature branches.
+
+The latest code is merged into development branch.
+
 ## TODO
 
 1) ...
