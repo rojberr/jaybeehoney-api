@@ -13,12 +13,16 @@ To use it you can send requests at the host :point_right: [https://jaybeehoney-a
 **Please remember that this API is not meant to be used with your browser**  
 
 Try (Heroku free tier apps sleep after 30 minutes of inactivity and need a minute to wake up): 
-> curl -X POST https://jaybeehoney-api.herokuapp.com/init  
+```bash
+curl -X POST https://jaybeehoney-api.herokuapp.com/init  
+```
 
 ![img.png](img.png)
 
 And then:
-> curl -X GET https://jaybeehoney-api.herokuapp.com/product
+```bash
+curl -X GET https://jaybeehoney-api.herokuapp.com/product
+```
 
 ![img_1.png](img_1.png)
 
@@ -36,7 +40,13 @@ When it gets deployed to Heroku it will use **prod profile** connecting to **Her
 To run it locally, use:
 
 1) cd docker (to get inside of /docker/ folder)
+```bash
+cd docker
+```
 2) docker-compose up -d (to run our database configured in docker-compose.yml)
+```bash
+docker-compose up -d
+```
 3) Open the API in your favorite IDE (I suggest IntelliJ 🤖 ) and run it!
 4) The connection 🔗 will be established automatically using env from __docker-compose.yml__ 
 
